@@ -17,4 +17,4 @@ todoItem.printDetails()
 
 //collection.addTodo(todoItem)
 
-console.log(JSON.stringify(todoItem))
+collection.getTodoItems(true).forEach(item => item.printDetails());
