@@ -13,7 +13,7 @@ console.log(`${collection.userName}'s Todo List`)
 
 let newId:number = collection.addTodo("Gor for run");
 let todoItem: TodoItem = collection.getTodoById(newId)
-todoItem.printDetails()
+//todoItem.printDetails()
 
 //collection.addTodo(todoItem)
 
