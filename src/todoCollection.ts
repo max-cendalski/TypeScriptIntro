@@ -15,18 +15,25 @@ export class TodoCollection {
     this.itemMap.set(this.nextId, new TodoItem(this.nextId, task));
     return this.nextId;
   }
-  getTodoById(id: number) : TodoItem {
+  getTodoById(id: number): TodoItem {
     return this.itemMap.get(id);
   }
 
   getTodoItems(includeComplete: boolean): TodoItem[] {
-    return [...this.itemMap.values()].filter(item=> includeComplete || !item.complete)
+    return [...this.itemMap.values()].filter(item => includeComplete || !item.complete)
   }
 
   markComplete(id: number, complete: boolean) {
     const todoItem = this.getTodoById(id);
-    if(todoItem) {
+    if (todoItem) {
       todoItem.complete = complete;
     }
+  }
+  removeComplete() {
+    this.itemMap.forEach(item=> {
+      if(item.complete) {
+        this.itemMap.delete(item.id)
+      }
+    })
   }
 }
