@@ -13,8 +13,12 @@ console.log(`${collection.userName}'s Todo List`)
 
 let newId:number = collection.addTodo("Gor for run");
 let todoItem: TodoItem = collection.getTodoById(newId)
-//todoItem.printDetails()
+
 
 //collection.addTodo(todoItem)
 
+//collection.removeComplete()
+console.clear()
+console.log(`${collection.userName}'s Todo List`
++ `(${ collection.getItemCounts().incomplete } items to do )`);
 collection.getTodoItems(true).forEach(item => item.printDetails());
