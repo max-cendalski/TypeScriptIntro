@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TodoItem = void 0;
+//More Concise Code
 class TodoItem {
     constructor(id, task, complete = false) {
-        this.complete = false;
         this.id = id;
         this.task = task;
         this.complete = complete;
@@ -13,15 +13,19 @@ class TodoItem {
     }
 }
 exports.TodoItem = TodoItem;
-//More Concise Code
 /* export class TodoItem {
-  constructor(public id: number,
-    public task: string,
-    public complete: boolean = false) {
+  public id: number;
+  public task: string;
+  public complete: boolean = false;
 
+  public constructor(id: number, task: string, complete: boolean = false) {
+    this.id = id;
+    this.task = task;
+    this.complete = complete;
   }
-  printDetails() : void{
+
+
+  public printDetails(): void {
     console.log(`${this.id}\t${this.task} ${this.complete ? "\t(complete)" : ""}`)
   }
-}
- */
+} */

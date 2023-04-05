@@ -7,35 +7,42 @@ let todos = [
     new todoItem_1.TodoItem(1, "Buy Flowers"), new todoItem_1.TodoItem(2, "Buy Watch"),
     new todoItem_1.TodoItem(3, "Collect checks"), new todoItem_1.TodoItem(4, "Walk Dogs", true)
 ];
+const prompt = inquirer.createPromptModule();
 let collection = new todoCollection_1.TodoCollection("Max", todos);
-console.clear();
+let showCompleted = true;
+//console.clear()
 console.log(`${collection.userName}'s Todo List`);
-let newId = collection.addTodo("Gor for run");
-let todoItem = collection.getTodoById(newId);
+//let newId: number = collection.addTodo("Gor for run");
+//let todoItem: TodoItem = collection.getTodoById(newId)
 //collection.addTodo(todoItem)
 //collection.removeComplete()
 console.clear();
-function displayTotoList() {
+function displayTodoList() {
     console.log(`${collection.userName}'s Todo List`
         + `(${collection.getItemCounts().incomplete} items to do )`);
-    collection.getTodoItems(true).forEach(item => item.printDetails());
+    collection.getTodoItems(showCompleted).forEach(item => item.printDetails());
 }
 ;
 var Commands;
 (function (Commands) {
+    Commands["Toogle"] = "Show/Hide Completed";
     Commands["Quit"] = "Quit";
 })(Commands || (Commands = {}));
 function promptUser() {
     console.clear();
-    displayTotoList();
-    inquirer.prompt({
+    displayTodoList();
+    prompt({
         type: "list",
         name: "command",
         message: "Choose Option",
-        choices: Object.values(Commands)
+        choices: Object.values(Commands),
+        //badProperty: true
     }).then(answers => {
-        if (answers["command"] !== Commands.Quit) {
-            promptUser();
+        switch (answers["command"]) {
+            case Commands.Toogle:
+                showCompleted = !showCompleted;
+                promptUser();
+                break;
         }
     });
 }
