@@ -7,6 +7,7 @@ type ItemCounts = {
 }
 export class TodoCollection {
   private nextId: number = 1;
+  //protected means property can be accessed only by class or its subclasses
   protected itemMap = new Map<number, TodoItem>();
 
   constructor(public userName: string, todoItems: TodoItem[] = []) {

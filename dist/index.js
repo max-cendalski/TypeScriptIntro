@@ -1,14 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const todoItem_1 = require("./todoItem");
-const todoCollection_1 = require("./todoCollection");
 const inquirer = require("inquirer");
-let todos = [
-    new todoItem_1.TodoItem(1, "Buy Flowers"), new todoItem_1.TodoItem(2, "Buy Watch"),
-    new todoItem_1.TodoItem(3, "Collect checks"), new todoItem_1.TodoItem(4, "Walk Dogs", true)
-];
+const jsonTodoCollection_1 = require("./jsonTodoCollection");
+let todos; /* = [
+  new TodoItem(1, "Buy Flowers"), new TodoItem(2, "Buy Watch"),
+  new TodoItem(3, "Collect checks"), new TodoItem(4, "Walk Dogs", true)
+]; */
 const prompt = inquirer.createPromptModule();
-let collection = new todoCollection_1.TodoCollection("Max", todos);
+let collection = new jsonTodoCollection_1.JsonTodoCollection("Max", todos);
 let showCompleted = true;
 console.log(`${collection.userName}'s Todo List`);
 //let newId: number = collection.addTodo("Gor for run");

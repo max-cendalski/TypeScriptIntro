@@ -1,13 +1,14 @@
 import { TodoItem } from "./todoItem";
 import { TodoCollection } from "./todoCollection";
 import * as inquirer from 'inquirer';
+import { JsonTodoCollection } from "./jsonTodoCollection";
 
-let todos: TodoItem[] = [
+let todos: TodoItem[] /* = [
   new TodoItem(1, "Buy Flowers"), new TodoItem(2, "Buy Watch"),
   new TodoItem(3, "Collect checks"), new TodoItem(4, "Walk Dogs", true)
-];
+]; */
 const prompt = inquirer.createPromptModule();
-let collection: TodoCollection = new TodoCollection("Max", todos);
+let collection: TodoCollection = new JsonTodoCollection("Max", todos);
 let showCompleted = true;
 
 console.log(`${collection.userName}'s Todo List`)
